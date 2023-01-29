@@ -1,12 +1,20 @@
 {
   "ipcMode": null,
-  "executionRoleArn": "arn:aws:iam::281290702866:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::627410274134:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
       "dnsSearchDomains": null,
       "environmentFiles": null,
-      "logConfiguration": null,
-      "entryPoint": null,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/bluegreen-taskdef",
+          "awslogs-region": "ap-northeast-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "entryPoint": [],
       "portMappings": [
         {
           "hostPort": 8080,
@@ -14,9 +22,9 @@
           "containerPort": 8080
         }
       ],
-      "command": null,
+      "command": [],
       "linuxParameters": null,
-      "cpu": 128,
+      "cpu": 0,
       "environment": [],
       "resourceRequirements": null,
       "ulimits": null,
@@ -29,7 +37,7 @@
       "memoryReservation": 128,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "ImageURI",
+      "image": "imageURl",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -51,19 +59,37 @@
   ],
   "placementConstraints": [],
   "memory": "512",
-  "taskRoleArn": "arn:aws:iam::281290702866:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::627410274134:role/ecsTaskExecutionRole",
   "compatibilities": [
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:281290702866:task-definition/bluegreen-taskdef:2",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-1:627410274134:task-definition/bluegreen-taskdef:1",
   "family": "bluegreen-taskdef",
   "requiresAttributes": [
     {
       "targetId": null,
       "targetType": null,
       "value": null,
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
       "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
     },
     {
       "targetId": null,
@@ -106,7 +132,7 @@
     "cpuArchitecture": null
   },
   "cpu": "256",
-  "revision": 2,
+  "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
