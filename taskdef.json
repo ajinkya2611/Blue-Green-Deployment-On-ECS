@@ -37,7 +37,7 @@
       "memoryReservation": 128,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "ImageURI",
+      "image": "ImageURL",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
